@@ -1,0 +1,47 @@
+<div>
+  <div class="form-inline">
+    <div class="input-group">
+      <span class="input-group-addon">Add</span>
+      <input class="form-control" placeholder="Team Name" type="text" ng-model="teamName">
+      <span class="input-group-btn">
+          <button class="btn btn-info" type="button" ng-click="$ctrl.addTeam(teamName); teamName = null;">+</button>
+      </span>
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Search</span>
+      <input class="form-control" type="text" ng-model="search.$" placeholder="User">
+    </div>
+    <span>Sort:</span>
+    <div class="btn-group">
+      <button class="btn btn-info" ng-click="$ctrl.sortBy('asc')">Asc</button>
+      <button class="btn btn-info" ng-click="$ctrl.sortBy('desc')">Desc</button>
+    </div>
+  </div>
+  <div class="list-group">
+    <ul>
+      <li ng-repeat="team in $ctrl.teams | orderBy:$ctrl.sort">
+        <h3>Team: {{team.name}}
+          <button class="btn btn-xs btn-link" ng-click="$ctrl.removeTeam(team)">x</button>
+        </h3>
+        <div class="form-inline">
+          <div class="col-sm-2 input-group">
+            <input class="form-control input-sm" placeholder="First" type="text" ng-model="newUserFirst">
+            <span class="input-group-btn" style="width:0px;"></span>
+            <input class="form-control input-sm" placeholder="Last" type="text" ng-model="newUserLast">
+            <span class="input-group-btn">
+              <button class="btn btn-info btn-sm" ng-click="$ctrl.addUser(team, newUserFirst, newUserLast); newUserFirst = null; newUserLast = null;">+</button>
+            </span>
+          </div>
+        </div>
+        <h4>
+          <ul>
+            <li ng-repeat="user in team.users | orderBy:'+first' | filter:search:strict">
+              <b>{{user.first}} {{user.last}}</b>
+              <button class="btn btn-xs btn-link" ng-click="$ctrl.removeUser(team, user)">x</button>
+            </li>
+          </ul>
+        </h4>
+      </li>
+    </ul>
+  </div>
+</div>

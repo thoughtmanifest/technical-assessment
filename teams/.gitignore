@@ -1,4 +1,8 @@
-.tmp/
-coverage/
-dist/
+logs/*
+!.gitkeep
 node_modules/
+tmp
+.idea
+.DS_Store
+teams-snapshots
+bower_components/

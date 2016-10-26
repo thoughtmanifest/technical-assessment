@@ -1,0 +1,13 @@
+{
+  "name": "teams",
+  "description": "An app for Team Management",
+  "version": "0.0.0",
+  "homepage": "https://github.com/thoughtmanifest/technical-assessment/tree/master/teams",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.x",
+    "angular-mocks": "1.5.x",
+    "bootstrap": "3.3.x"
+  }
+}
